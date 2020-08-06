@@ -90,7 +90,7 @@ CONST_ADVANTICSYS_TEST_10 = "data-20190821-test10.csv"  # Wrong sensor id
 # Tinytag test data
 CONST_TINYTAG_TEST_1 = "TempTT.csv"  # Health data file
 CONST_TINYTAG_TEST_2 = "tinytag_all.csv"  # Health historical data file
-CONST_TINYTAG_TEST_2019 = "Temps_RafKirk.csv" # 2019 data
+CONST_TINYTAG_TEST_2019 = "Temps_RafKirk.csv"  # 2019 data
 
 # TINYTAG IMPORT
 CONST_TINYTAG_COL_SENSOR_NAME = "TempJulia"
@@ -159,11 +159,11 @@ CONST_CROP_30MHZ_TEST_T_RH_CHECKID = os.environ["CROP_30MHZ_TEST_T_RH_CHECKID"].
 
 # Create connection string
 SQL_ENGINE = "postgresql"
-SQL_USER = "localhost"  # os.environ["CROP_SQL_USER"]
-SQL_PASSWORD = "crop"  # os.environ["CROP_SQL_PASS"]
-SQL_HOST = "localhost"  # os.environ["CROP_SQL_HOST"]
-SQL_PORT = "5433"  # os.environ["CROP_SQL_PORT"]
-SQL_DBNAME = "fake_db"  # os.environ["CROP_SQL_DBNAME"].strip().lower()
+SQL_USER = os.environ["CROP_SQL_USER"]
+SQL_PASSWORD = os.environ["CROP_SQL_PASS"]
+SQL_HOST = os.environ["CROP_SQL_HOST"]
+SQL_PORT = os.environ["CROP_SQL_PORT"]
+SQL_DBNAME = os.environ["CROP_SQL_DBNAME"].strip().lower()
 SQL_DEFAULT_DBNAME = "postgres"
 SQL_SSLMODE = "require"
 
