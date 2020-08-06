@@ -179,7 +179,7 @@ class ReadingsAdvanticsysClass(BASE):
     id = Column(Integer, primary_key=True, autoincrement=True)
     sensor_id = Column(
         Integer,
-        ForeignKey("{}.{}".format(SENSOR_TABLE_NAME, ID_COL_NAME)),
+        ForeignKey("{}.{}".format(SENSOR_TABLE_NAME, ID_COL_NAME)),  # sensors.id
         nullable=False,
     )
 

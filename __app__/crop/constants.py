@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.DEBUG)
 # Sensor Type Names
 CONST_ADVANTICSYS = "Advanticsys"
 CONST_AIR_VELOCITY = "Air_Velocity"
+CONST_TINYTAG = "TinyTag"
 CONST_STARK = "Stark"
 CONST_ZENSIE_TRH_SENSOR_TYPE = "30MHz Temperature and RH GU"
 
@@ -21,6 +22,7 @@ CONST_DATA_FOLDER = "data"
 CONST_TEST_FOLDER = "tests"
 CONST_CORE_DATA_FOLDER = "Core"
 CONST_ADVANTICSYS_FOLDER = "Advanticsys"
+CONST_TINYTAG_FOLDER = "TinyTag"
 CONST_AIR_VELOCITY_FOLDER = "Air_Velocity"
 CONST_ENV_FOLDER = "Environmental"
 
@@ -35,6 +37,9 @@ CONST_COREDATA_DIR = os.path.join(
 )
 CONST_ADVANTICSYS_DIR = os.path.join(
     CONST_TEST_DIR, CONST_DATA_FOLDER, CONST_ADVANTICSYS_FOLDER
+)
+CONST_TINYTAG_DIR = os.path.join(
+    CONST_TEST_DIR, CONST_DATA_FOLDER, CONST_TINYTAG_FOLDER
 )
 CONST_ENV_DIR = os.path.join(CONST_TEST_DIR, CONST_DATA_FOLDER, CONST_ENV_FOLDER)
 
@@ -81,6 +86,22 @@ CONST_ADVANTICSYS_TEST_7 = "data-20190821-test7.csv"  # Few rows, co2 level is w
 CONST_ADVANTICSYS_TEST_8 = "data-20190821-test8.csv"  # Temperature and humidity empty
 CONST_ADVANTICSYS_TEST_9 = "data-20190821-test9.csv"  # Duplicate values
 CONST_ADVANTICSYS_TEST_10 = "data-20190821-test10.csv"  # Wrong sensor id
+
+# Tinytag test data
+CONST_TINYTAG_TEST_1 = "TempTT.csv"  # Health data file
+CONST_TINYTAG_TEST_2 = "tinytag_all.csv"  # Health historical data file
+CONST_TINYTAG_TEST_2019 = "Temps_RafKirk.csv" # 2019 data
+
+# TINYTAG IMPORT
+CONST_TINYTAG_COL_SENSOR_NAME = "TempJulia"
+CONST_TINYTAG_COL_TIMESTAMP = "DateTime"
+CONST_TINYTAG_COL_TEMPERATURE = "Temperature"
+CONST_TINYTAG_COL_NAME = "sensor_name"
+CONST_TINYTAG_COL_LIST = [
+    CONST_TINYTAG_COL_NAME,
+    CONST_TINYTAG_COL_TIMESTAMP,
+    CONST_TINYTAG_COL_TEMPERATURE,
+]
 
 # Air Velocity test data
 CONST_AIR_VELOCITY_TEST_1 = "data-20200128-test1.csv"
@@ -138,22 +159,18 @@ CONST_CROP_30MHZ_TEST_T_RH_CHECKID = os.environ["CROP_30MHZ_TEST_T_RH_CHECKID"].
 
 # Create connection string
 SQL_ENGINE = "postgresql"
-SQL_USER = os.environ["CROP_SQL_USER"]
-SQL_PASSWORD = os.environ["CROP_SQL_PASS"]
-SQL_HOST = os.environ["CROP_SQL_HOST"]
-SQL_PORT = os.environ["CROP_SQL_PORT"]
-SQL_DBNAME = os.environ["CROP_SQL_DBNAME"].strip().lower()
+SQL_USER = "localhost"  # os.environ["CROP_SQL_USER"]
+SQL_PASSWORD = "crop"  # os.environ["CROP_SQL_PASS"]
+SQL_HOST = "localhost"  # os.environ["CROP_SQL_HOST"]
+SQL_PORT = "5433"  # os.environ["CROP_SQL_PORT"]
+SQL_DBNAME = "fake_db"  # os.environ["CROP_SQL_DBNAME"].strip().lower()
 SQL_DEFAULT_DBNAME = "postgres"
 SQL_SSLMODE = "require"
 
 SQL_TEST_DBNAME = "test_db"
 
 SQL_CONNECTION_STRING = make_conn_string(
-    SQL_ENGINE,
-    SQL_USER,
-    SQL_PASSWORD,
-    SQL_HOST,
-    SQL_PORT,
+    SQL_ENGINE, SQL_USER, SQL_PASSWORD, SQL_HOST, SQL_PORT,
 )
 
 
